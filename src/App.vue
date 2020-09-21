@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <h1>TODO VUE!</h1>
+      <input
+        class="input"
+        v-model="newToDo"
+      />
+      <button class="add-button">Add</button>
+      <ul style="list-style-type: none;">
+        <li v-for="(todo, i) in existingToDo" v-bind:key="todo.id">
+          <span>
+            {{i+1}}: {{todo.text}}
+          </span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      newToDo: '',
+      existingToDo: [
+        {text: 'cry', id:0},
+        {text: 'sleep', id: 1},
+        {text: 'eat', id: 2}
+      ]
+    }
+  },
+  method: {
+    add(){
+      this.existingToDo.push({
+        text: this.newToDo,
+        id: new Date().valueOf()
+      }),
+      THIS.
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
