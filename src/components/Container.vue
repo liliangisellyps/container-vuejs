@@ -1,8 +1,8 @@
 <template>
   <div class="container">
       <div class="header">
-          <slot name="title"></slot>
-          <slot name="action"></slot>
+          <div class="title"><slot name="title"></slot></div>
+          <div class="action"><slot name="action"></slot></div>
       </div>
       <div class="body">
           <slot name="body"></slot>
@@ -19,6 +19,7 @@ export default {
 
 <style>
   .container {
+    color: #383838;
     font-family: 'Open Sans', sans-serif;
     padding: 30px;
     border-radius: 12px;
@@ -27,7 +28,12 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #a6a6a6;
+    border-bottom: 1px solid #707070;
+    padding-bottom: 22.5px;
   }
-  
+  .title {
+    font-weight: bold;
+    font-size: 36px;
+    margin: 0;
+  }  
 </style>
